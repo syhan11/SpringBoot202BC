@@ -9,16 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping ("/songform")    // get information from songform.html
+
+    // get information from songform.html
+    @GetMapping ("/songform")
     public String loadFormPage(Model model){
         model.addAttribute("song", new Song());   // var song has empty Song class
-        return "songform";   // goto songform.html
+        return "songform";   // goto songform.html where user will fill the song variable
     }
 
-    @PostMapping("/songform")    // post information from songform.html
+
+    // post information from songform.html
+    @PostMapping("/songform")
     public String loadFromPage(@ModelAttribute Song song, Model model){
-        model.addAttribute("song", song);
-        return "confirmsong";
+        model.addAttribute("song", song);  //pass the song variable
+        return "confirmsong";  // goto confirmsong.html
     }
 
 }
