@@ -19,6 +19,10 @@ public class HomeController {
 
 
     // post information from songform.html
+    /*
+     * post information from songform.html
+     * Song object was passed to confirmsong.html as a variable song
+     */
     @PostMapping("/songform")
     public String loadFromPage(@ModelAttribute Song song, Model model){
         model.addAttribute("song", song);  //pass the song variable

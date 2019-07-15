@@ -5,7 +5,19 @@
     <title>SongForm</title>
 </head>
 <body>
-<!-- Display each field for song class and retrieve data from the user -->
+<!-- Display each field for song class to get data from the user.
+     It will 'store' input from each text field to corresponding song class variables.
+     th:action -- When user clicks on 'submit' button, it will send th:object (song)
+                  to POST request to "/songform".  This will access the loadFromPage
+                  method in the home controller.
+
+     th:object -- the form's values will be saved in the object called "song",
+                  which was passed from the controller.
+
+     th:field -- the value that is entered into an element corresponds to the value
+                 of the Song object.
+                 i.e. *{name} is calling song.setName() method
+-->
     <form action="#" th:action="@{/songform}" th:object="${song}" method="post">
         Name: <input type="text" th:field="*{name}" /><br />
         Artist: <input type="text" th:field="*{artist}" /><br />
